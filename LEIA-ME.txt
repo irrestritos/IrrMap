@@ -1,0 +1,41 @@
+# Mapa de postos — versão modular
+
+## Publicação no GitHub Pages
+Envie a pasta inteira mantendo esta estrutura. O arquivo inicial é `index.html`.
+
+## Como adicionar outro conjunto
+1. Crie um arquivo JSON dentro de `dados/`, por exemplo `postos_sul.json`.
+2. Use esta estrutura:
+
+```json
+{
+  "titulo": "Postos da Região Sul",
+  "descricao": "Postos e paradas do conjunto.",
+  "locais": [
+    {
+      "nome": "Nome do posto",
+      "cidade": "Cidade/UF",
+      "lat": -29.0,
+      "lon": -51.0
+    }
+  ]
+}
+```
+
+3. Abra `dados/catalogo.json` e acrescente apenas o nome do arquivo na lista `arquivos`:
+
+```json
+{
+  "arquivos": [
+    "postos_mg_ba.json",
+    "postos_sul.json"
+  ]
+}
+```
+
+O JavaScript consulta cada JSON listado, lê seu `titulo`, `descricao` e quantidade de locais e monta o menu expansível automaticamente. O usuário pode marcar vários conjuntos ao mesmo tempo.
+
+## Observação importante
+Páginas estáticas do GitHub Pages não oferecem uma listagem automática dos arquivos de uma pasta. Por isso, `catalogo.json` funciona como índice dos conjuntos disponíveis. Para publicar um novo conjunto, basta adicionar o JSON e incluir seu nome nesse catálogo; não é necessário editar HTML, CSS ou JavaScript.
+
+Os arquivos JSON devem estar no mesmo repositório/site e ser acessíveis publicamente.
